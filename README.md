@@ -13,7 +13,7 @@ data.fillna(data.mean(), inplace=True) # Replacing all NA values with mean value
 data.head()
 data.describe()
 
-#Random Forest Classifier
+# Random Forest Classifier
 
 
 
