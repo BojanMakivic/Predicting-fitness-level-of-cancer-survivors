@@ -1,2 +1,2 @@
-# Predicting maximal work capacity of cancer survivors expressed in watts (W)
+# Predicting maximal work capacity of cancer survivors expressed in watts (W) 
 Three models (Random Forest Classifier, Random Forest Regressor and Multinomial Logistic Regression) are used to predict maximal Watt performace which can be obtained during maximal cycle ergometry test. Four attributes (Age, body weight, body height and body mass index (BMI)) are used to predict outcome variable (WATTmax). 
