@@ -56,3 +56,32 @@ browseButton_CSV = tk.Button(text="      Import XLSX File     ", command=getCSV,
 canvas1.create_window(150, 150, window=browseButton_CSV)
 
 root.mainloop()
+
+# mark all values of data frame that contains NaN
+sample_incomplete_rows = df[df.isnull().any(axis=1)] 
+
+# drops all rows of data frame which contain any NaN 
+df.dropna(subset=sample_incomplete_rows, inplace=True) 
+
+df.info()
+
+# Histogram of gender distribution
+df['Gender'].hist(label=int,align='mid')
+
+# Function to calculate bmi index
+def bmi(bw,bh):
+    return bw/((bh/100)*(bh/100))
+
+# Add a new column with the name "BMI"
+df['BMI']=bmi(df.iloc[:,2],df.iloc[:,3]) 
+
+df.describe()
+
+# Histogram distribution for each attribute
+
+df.hist(bins=50, figsize=(20,15))
+save_fig("attribute_histogram_plots")
+plt.show()
+
+# to make this notebook's output identical at every run
+np.random.seed(42)
