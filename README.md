@@ -1,7 +1,7 @@
 # Predicting maximal work capacity of cancer survivors
 ## Preface
-I can only recommend you the book **Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow** written by *Aurélien Géron* which served me as a great help while I've been working on this repository.
-(https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/):
+I can only recommend you the book [**Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow**](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/) written by *Aurélien Géron* which served me as a great help while I've been working on this repository.
+:
 
 <img src="https://images-na.ssl-images-amazon.com/images/I/51aqYc1QyrL._SX379_BO1,204,203,200_.jpg" title="book" width="150" />
 ## Introduction
