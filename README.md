@@ -99,6 +99,6 @@ Contributions are welcome. Please:
 3. Open a pull request describing your changes
 
 ## License & Contact
-- Specify your license here (e.g., MIT). If no license file exists in the repo, consider adding one.
+- MIT license 
 - Author: Bojan Makivić
 - Contact / Questions: https://github.com/BojanMakivic
