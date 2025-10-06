@@ -1,14 +1,104 @@
-# Predicting maximal work capacity of cancer survivors
-## Preface
-I can only recommend you the book [**Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow**](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/) written by *Aurélien Géron* which served me as a great tool while I've been working on this repository.
+# Predicting Maximal Work Capacity of Cancer Survivors
 
-<img src="https://images-na.ssl-images-amazon.com/images/I/51aqYc1QyrL._SX379_BO1,204,203,200_.jpg" title="book" width="150" />
+A small project that uses machine learning models to predict the maximal work capacity (Watt) achieved during a maximal cycle ergometry test for cancer survivors. The goal is to support clinical assessments by estimating a patient's peak exercise workload from basic demographic and anthropometric features.
 
-## Introduction
-After finishing with surgery and drug therapy, the cancer patients should undergo physical and sport therapy in order to regain their reduced physical capacity (strength, endurance, flexibility and etc.). In order to tailor optimal training's plan for every patient individualy, we enter the process of information geathering in terms if person's fitness level. One quite common test that is performed in the clinical setup is cycle ergometry test which is suitable for cardiorespiratory and aerobic fitnees assessment. 
-Adventages of this test are many, ranging from reliability and validity of the test to accuracy and easy interpretation. On the other hand disadvantages are mostly related to organizational, time-management and cost aspects.
+## Table of Contents
+- Project overview
+- Dataset
+- Models used
+- Evaluation
+- How to run / Reproduce
+- Requirements
+- Results (summary)
+- Notes, limitations & next steps
+- Contributing
+- License & contact
 
-## Data
-The dataset include age, gender, body weight, body height and highest worload (Watt) achieved during cycle ergometer test.
+## Project overview
+After cancer treatment (surgery, chemotherapy, radiotherapy), many patients undergo physical rehabilitation to restore fitness (endurance, strength, flexibility). The cycle ergometer maximal test is a standard tool for assessing maximal aerobic/work capacity but requires specialized equipment and supervision. This project aims to predict the highest workload (Watt) achieved by a patient using easily available data (age, sex, weight, height, etc.) to support triage and planning of rehabilitation.
+
+Recommended reading: Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow (if you want a practical ML reference).
+
+## Dataset
+- Features include: age, gender, body weight, body height, and maximal workload (Watt) measured on a cycle ergometer.
+- The dataset used in this repository is located in the repository (check the `data/` directory or the notebooks for the exact filename).
+- Data preprocessing steps used in the notebooks:
+  - Missing value handling
+  - Encoding categorical variables (e.g., gender)
+  - Feature scaling where needed
+  - Train/test split and cross-validation
+
 ## Models
-Three models (Linear Regression, Support Vector Regressor and Random Forest Regressor) are used to predict maximal Watt performace which can be obtained during maximal cycle ergometry test. Four attributes (Age, body weight, body height and body mass index (BMI)) are used to predict outcome variable (WATTmax). 
+Three supervised regression models were trained and compared:
+- Linear Regression
+- Support Vector Regressor (SVR)
+- Random Forest Regressor
+
+Each model was trained to predict maximal workload (Watt). The notebooks include hyperparameter tuning and cross-validation for fair comparisons.
+
+## Evaluation
+Common regression metrics used to evaluate models:
+- Mean Absolute Error (MAE)
+- Mean Squared Error (MSE) / Root Mean Squared Error (RMSE)
+- R-squared (R²)
+
+Use cross-validation scores to compare model robustness and a hold-out test set for final evaluation.
+
+## How to run / Reproduce
+1. Clone the repository:
+   git clone https://github.com/BojanMakivic/Predicting-fitness-level-of-cancer-survivors.git
+2. Create and activate a virtual environment (recommended):
+   python -m venv .venv
+   source .venv/bin/activate  # Linux / macOS
+   .venv\Scripts\activate     # Windows
+3. Install dependencies:
+   pip install -r requirements.txt
+   (If no requirements file is available, install common packages:
+    pip install numpy pandas scikit-learn matplotlib seaborn jupyterlab)
+4. Launch Jupyter and open the notebooks:
+   jupyter lab
+5. Follow the notebooks in order:
+   - Data exploration & preprocessing
+   - Model training & hyperparameter tuning
+   - Evaluation & comparison
+
+If there are scripts for training/evaluation (e.g., train.py), run them with:
+   python train.py --config configs/your_config.yml
+
+## Requirements
+- Python 3.8+
+- numpy
+- pandas
+- scikit-learn
+- matplotlib
+- seaborn
+- jupyterlab / notebook
+
+Add any other packages used in the notebooks (e.g., joblib, xgboost) to `requirements.txt`.
+
+## Results (summary)
+- A concise summary of model performance and which model worked best should be added here after running the notebooks. Example format:
+  - Linear Regression: MAE = XX.X, RMSE = XX.X, R² = 0.XX
+  - SVR: MAE = XX.X, RMSE = XX.X, R² = 0.XX
+  - Random Forest: MAE = XX.X, RMSE = XX.X, R² = 0.XX
+- Include plots such as predicted vs actual, residuals, and feature importances.
+
+## Notes, limitations & next steps
+- Sample size and representativeness: Ensure the dataset is representative of the patient population where the model will be used.
+- Clinical validation: Model predictions should be validated prospectively before any clinical deployment.
+- Potential extensions:
+  - Add more clinical predictors (e.g., comorbidities, treatment type, time since treatment)
+  - Calibrate models for different subgroups (age ranges, sex)
+  - Use ensembles or gradient boosting (e.g., XGBoost, LightGBM)
+  - Deploy as a simple web app for clinician use (Flask / Streamlit)
+
+## Contributing
+Contributions are welcome. Please:
+1. Fork the repo
+2. Create a feature branch
+3. Open a pull request describing your changes
+
+## License & Contact
+- Specify your license here (e.g., MIT). If no license file exists in the repo, consider adding one.
+- Author: Bojan Makivić
+- Contact / Questions: https://github.com/BojanMakivic
